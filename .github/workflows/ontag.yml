@@ -47,13 +47,17 @@ jobs:
         run: |
           cd addonTestRepo-cf
           date > generated.txt
-          git config user.name github-actions
+          git config user.name "Github Actions"
           git config user.email github-actions@github.com
-          git add .
-          git commit -m "generated"
+          git commit -m "generated" -a
           git tag ${{ steps.get_version.outputs.VERSION }}
-          git push
-          git push --tags
+
+      - name: Push Changes
+        uses: ad-m/github-push-action@master
+          with:
+            directory: addonTestRepo-cf
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            tags: true
 
       - name: Crate Release
         id: create_release
