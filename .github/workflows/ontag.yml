@@ -42,8 +42,6 @@ jobs:
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
       - name: commit-curse
-        with:
-          token: ${{ secrets.GitHub_PAT }} # `GitHub_PAT` is a secret that contains your PAT
         run: |
           cd addonTestRepo-cf
           date > generated.txt
@@ -54,10 +52,10 @@ jobs:
 
       - name: Push Changes
         uses: ad-m/github-push-action@v0.6.0
-          with:
-            directory: addonTestRepo-cf
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            tags: true
+        with:
+          directory: addonTestRepo-cf
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tags: true
 
       - name: Crate Release
         id: create_release
