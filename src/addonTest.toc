@@ -1,0 +1,4 @@
+## Interface: @INTERFACE@
+## Title: addonTestRepo
+## Author: opussf
+## Version: @VERSION@

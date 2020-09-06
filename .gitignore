@@ -4,4 +4,4 @@
 *.iml
 *.sublime-*
 target/
-Rested-cf/
+*-cf/
