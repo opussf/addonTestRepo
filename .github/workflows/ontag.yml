@@ -53,7 +53,7 @@ jobs:
           git tag ${{ steps.get_version.outputs.VERSION }}
 
       - name: Push Changes
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@v0.6.0
           with:
             directory: addonTestRepo-cf
             github_token: ${{ secrets.GITHUB_TOKEN }}
